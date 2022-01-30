@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "author": {
     "name": "Gökberk Akdeniz",
-    "email": "gokberkakdeniz@hotmail.com",
     "url": "https://akdeniz.dev"
   },
-  "homepage": "https://github.com/gokberkakdeniz/efatura2",
+  "homepage": "https://github.com/gokberkakdeniz/efatura-pdf-donusturucu",
   "private": true,
   "engines": {
     "node": ">=v16.13",
