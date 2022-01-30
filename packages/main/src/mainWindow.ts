@@ -10,8 +10,8 @@ async function createWindow() {
       webviewTag: false,
       preload: join(__dirname, "../../preload/dist/index.cjs"),
     },
-    minHeight: 400,
-    minWidth: 400,
+    minWidth: 800,
+    minHeight: 600,
   });
 
   browserWindow.on("ready-to-show", () => {
