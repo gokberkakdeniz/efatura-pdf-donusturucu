@@ -6,7 +6,7 @@
 
 - `git clone https://github.com/gokberkakdeniz/efatura-pdf-donusturucu`
 - `cd efatura-pdf-donusturucu`
-- `pnpm install # yarn install or npm install`
+- `pnpm install # yarn/npm install`
 - `pnpm watch`
 
 ## Derleme
