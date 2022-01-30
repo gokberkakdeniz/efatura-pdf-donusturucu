@@ -1,36 +1,38 @@
-/**
- * @module preload
- */
+import { contextBridge, ipcRenderer } from "electron";
+import type { Task, TaskResult } from "/@shared/worker";
+import { join, dirname, basename, extname } from "path";
+import { lstat } from "fs/promises";
 
-import {contextBridge} from 'electron';
-import {sha256sum} from '/@/sha256sum';
+const workerAdd = (task: Task): number =>
+  ipcRenderer.sendSync("workerAdd", task);
+contextBridge.exposeInMainWorld("workerAdd", workerAdd);
 
-/**
- * The "Main World" is the JavaScript context that your main renderer code runs in.
- * By default, the page you load in your renderer executes code in this world.
- *
- * @see https://www.electronjs.org/docs/api/context-bridge
- */
+const workerDel = (taskId: number): boolean =>
+  ipcRenderer.sendSync("workerDel", taskId);
+contextBridge.exposeInMainWorld("workerDel", workerDel);
 
-/**
- * After analyzing the `exposeInMainWorld` calls,
- * `packages/preload/exposedInMainWorld.d.ts` file will be generated.
- * It contains all interfaces.
- * `packages/preload/exposedInMainWorld.d.ts` file is required for TS is `renderer`
- *
- * @see https://github.com/cawa-93/dts-for-context-bridge
- */
+const workerStart = () => ipcRenderer.send("workerStart");
+contextBridge.exposeInMainWorld("workerStart", workerStart);
 
-/**
- * Expose Environment versions.
- * @example
- * console.log( window.versions )
- */
-contextBridge.exposeInMainWorld('versions', process.versions);
+const workerOnStart = (callback: () => void) => {
+  ipcRenderer.on("workerOnStart", () => callback());
+};
+contextBridge.exposeInMainWorld("workerOnStart", workerOnStart);
 
-/**
- * Safe expose node.js API
- * @example
- * window.nodeCrypto('data')
- */
-contextBridge.exposeInMainWorld('nodeCrypto', {sha256sum});
+const workerStop = () => ipcRenderer.send("workerStop");
+contextBridge.exposeInMainWorld("workerStop", workerStop);
+
+const workerOnStop = (callback: () => void) => {
+  ipcRenderer.on("workerOnStop", () => callback());
+};
+contextBridge.exposeInMainWorld("workerOnStop", workerOnStop);
+
+const workerOnTaskComplete = (callback: (res: TaskResult) => void) => {
+  ipcRenderer.on("workerOnTaskComplete", (_, t) => callback(t));
+};
+contextBridge.exposeInMainWorld("workerOnTaskComplete", workerOnTaskComplete);
+
+contextBridge.exposeInMainWorld("path", { join, dirname, basename, extname });
+
+const isFile = (path: string) => lstat(path).then((s) => s.isFile());
+contextBridge.exposeInMainWorld("fs", { isFile });

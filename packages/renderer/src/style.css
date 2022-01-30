@@ -1,0 +1,143 @@
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background-color: #20252C;
+  color: #EEEEEE;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.files {
+  background: #272C35;
+  flex-grow: 1;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #272C35;
+  border-radius: 6px;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.files.failures {
+  flex-grow: 0;
+  margin-top: 0px;
+}
+
+.files.failures:empty {
+  margin: 0;
+  padding: 0;
+}
+
+.files .file {
+  display: flex;
+  justify-content: space-between;
+  background-color: #393f47;
+  margin: 4px 0;
+  border-radius: 4px;
+  height: 24px;
+  padding: 8px;
+}
+
+.files.failures .file {
+  flex-direction: column;
+  height: 36px;
+}
+
+.files.failures .file div:nth-child(1) {
+  color: tomato;
+  font-weight: bold;
+}
+
+.files.failures .file div:nth-child(2) {
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file:nth-child(2n+2) {
+  background-color: #3f454e;
+}
+
+.file-delete { 
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  color: #e74c3c;
+  background: url('data:image/svg+xml;text,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172"><g fill="none"><path d="M0 172V0h172v172z"/><path d="M71.667 14.333 64.5 21.5h-43v14.333h7.95l12.78 109.334v.056c.94 7.071 7.079 12.444 14.208 12.444h59.11c7.129 0 13.269-5.373 14.208-12.444l.014-.056 12.78-109.334h7.95V21.5h-43l-7.167-7.167zm-27.771 21.5h84.208l-12.556 107.5h-59.11z" fill="tomato"/></g></svg>') 50% 50% no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.file-delete:hover {
+  filter: brightness(0.7);
+}
+
+.actions {
+  background: #272C35;
+  height: 40px;
+  display: flex;
+  align-items: stretch;
+  margin: 10px;
+  margin-top: 0px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.actions.worker-running #start,
+.actions.worker-running #removeAll,
+.actions.worker-running #mergeFiles,
+.actions.worker-running label[for="mergeFiles"] {
+  pointer-events: none;
+  color: #666666 !important;
+  border-color: #666666 !important;
+}
+
+.actions .grow {
+  flex-grow: 1;
+}
+
+.actions button {
+  background: #272C35;
+  border: 1px solid #717680;
+  border-radius: 2px;
+  color: #EEEEEE;
+  min-width: 100px;
+  outline: none;
+}
+
+.actions div {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.actions button:hover {
+  background: #717680;
+}
+
+.actions #removeAll {
+  color: tomato;
+  border-color: tomato;
+  min-width: 120px;
+}
+
+.actions #removeAll:hover {
+  background: #22252b;
+}

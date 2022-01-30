@@ -2,7 +2,7 @@ if (process.env.VITE_APP_VERSION === undefined) {
   const now = new Date;
   process.env.VITE_APP_VERSION = `${now.getUTCFullYear() - 2000}.${now.getUTCMonth() + 1}.${now.getUTCDate()}-${now.getUTCHours() * 60 + now.getUTCMinutes()}`;
 }
-
+const pkg = require("./package.json")
 /**
  * @type {import('electron-builder').Configuration}
  * @see https://www.electron.build/configuration/configuration
@@ -18,6 +18,7 @@ const config = {
   extraMetadata: {
     version: process.env.VITE_APP_VERSION,
   },
+  ...pkg.build
 };
 
 module.exports = config;
