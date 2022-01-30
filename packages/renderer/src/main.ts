@@ -134,7 +134,7 @@ class Application {
           Hepsini Kaldır
         </button>
         <div class="grow" />
-        <div>
+        <div style="display:none;">
           <input
             type="checkbox"
             id="mergeFiles"
