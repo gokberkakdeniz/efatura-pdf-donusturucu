@@ -1,4 +1,4 @@
-# efatura-pdf-donusturucu
+# <img src="https://raw.githubusercontent.com/gokberkakdeniz/efatura-pdf-donusturucu/main/buildResources/icon.png" width="20px"></img> efatura-pdf-donusturucu
 
 TR: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.zip` ve `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.html` formatındaki elektronik faturalarınızı topluca PDF'ye çevirmenize yarayan bir uygulamadır.
 
