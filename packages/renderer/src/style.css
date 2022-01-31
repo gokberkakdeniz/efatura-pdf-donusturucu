@@ -92,6 +92,7 @@ body {
 .actions {
   background: #272C35;
   height: 40px;
+  min-height: 40px;
   display: flex;
   align-items: stretch;
   margin: 10px;
