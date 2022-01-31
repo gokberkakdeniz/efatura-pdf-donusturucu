@@ -1,20 +1,22 @@
 # efatura-pdf-donusturucu
 
-`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.zip` ve `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.html` formatındaki elektronik faturalarınızı topluca PDF'ye çevirmenize yarayan bir uygulamadır.
+TR: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.zip` ve `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.html` formatındaki elektronik faturalarınızı topluca PDF'ye çevirmenize yarayan bir uygulamadır.
 
-## Geliştirme
+EN: A small application to convert efatura files in the formats of `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.zip` and `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_f.html` to PDF files.
+
+## Development / Geliştirme
 
 - `git clone https://github.com/gokberkakdeniz/efatura-pdf-donusturucu`
 - `cd efatura-pdf-donusturucu`
 - `pnpm install # yarn/npm install`
 - `pnpm watch`
 
-## Derleme
+## Building / Derleme
 
 - `pnpm compile`
 
 
-## Test edilmiş sistem özellikleri
+## Tested OS information / Test edilmiş sistem özellikleri
 
 - **node**: 17.4.0
 - **pnpm**: 6.28.0
